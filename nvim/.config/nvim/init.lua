@@ -33,19 +33,6 @@ require("mason-lspconfig").setup_handlers({
     end
 })
 
-vim.g.clipboard = {
-  name = "pbcopy",
-  copy = {
-    ["+"] = "pbcopy",
-    ["*"] = "pbcopy",
-  },
-  paste = {
-    ["+"] = "pbpaste",
-    ["*"] = "pbpaste",
-  },
-  cache_enabled = 0,
-}
-
 -- create pipe file
 local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
 if not vim.loop.fs_stat(pipepath) then
