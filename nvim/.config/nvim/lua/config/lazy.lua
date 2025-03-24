@@ -23,27 +23,13 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
-    spec = {
-        -- import your plugins
-        --solarized theme
-        {
-            'maxmx03/solarized.nvim',
-            lazy = false,
-            priority = 1000,
-            ---@type solarized.config
-            opts = {},
-            config = function(_, opts)
-                vim.o.termguicolors = true
-                vim.o.background = 'light'
-                require('solarized').setup(opts)
-                vim.cmd.colorscheme 'solarized'
-            end,
-        },
-        { import = "config.plugins" },
-        {
-            "williamboman/mason.nvim",
-            "williamboman/mason-lspconfig.nvim",
-            "neovim/nvim-lspconfig",
-        },
-    },
+	spec = {
+		-- import your plugins
+		{ import = "config.plugins" },
+		{
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		},
+	},
 })

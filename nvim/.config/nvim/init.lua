@@ -1,3 +1,4 @@
+vim.g.preferred_colorscheme = "zenbones"
 --after directory for plugin configurations
 require("config.lazy")
 -- line numbers 
