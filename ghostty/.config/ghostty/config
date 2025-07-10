@@ -1,4 +1,8 @@
 # mijn config
-background-opacity = 0.6
+background-opacity = .8
 background-blur = true
 theme = zenbones_dark
+font-size = 20
+
+macos-titlebar-style = hidden
+macos-non-native-fullscreen = true
