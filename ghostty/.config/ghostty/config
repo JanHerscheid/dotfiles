@@ -2,7 +2,7 @@
 background-opacity = .8
 background-blur = true
 theme = zenbones_dark
-font-size = 20
+font-size = 26
 
 macos-titlebar-style = hidden
 macos-non-native-fullscreen = true

@@ -1,42 +1,37 @@
-vim.g.preferred_colorscheme = "zenbones"
---after directory for plugin configurations
-require("config.lazy")
--- line numbers 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.clipboard = "unnamedplus"
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
-vim.opt.smarttab = false -- if true use x blank spaces instead of real tab 
-vim.opt.autoindent = true
-vim.opt.smartindent = true
-vim.opt.cindent = true
+vim.o.number = true
+vim.o.relativenumber = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = false
+vim.o.smarttab = false -- if true use x blank spaces instead of real tab
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.cindent = true
+vim.o.wrap = false
 
--- mason
-require("mason").setup()
-require("mason-lspconfig").setup({
-    ensure_installed = { "gopls", "lua_ls", }, -- Install these LSPs
-    automatic_installation = true,
+vim.g.mapleader = " "
+
+vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)
+
+vim.pack.add({
+	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = 'https://github.com/zenbones-theme/zenbones.nvim' },
+	{ src = "https://github.com/echasnovski/mini.pick" },
+	{ src = "https://github.com/seblyng/roslyn.nvim" },
+	{ src = "https://github.com/mason-org/mason.nvim" },
 })
 
-require("mason-lspconfig").setup_handlers({
-    function(server_name)
-        require("lspconfig")[server_name].setup({})
-    end,
+require "mini.pick".setup()
+require "mason".setup()
 
-    ["lua_ls"] = function()
-        require("lspconfig").lua_ls.setup({
-            settings = { Lua = { diagnostics = { globals = { "vim" } } } }
-        })
-    end
-})
+vim.keymap.set('n', '<leader>ff', ":Pick files<CR>")
+vim.keymap.set('n', '<leader>fs', ":Pick grep live<CR>")
 
--- create pipe file
-local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
-if not vim.loop.fs_stat(pipepath) then
-  vim.fn.serverstart(pipepath)
-end
+vim.lsp.enable({ "lua_ls", "ts_ls"})
 
+vim.g.zenbones_compat = 1
+vim.cmd("colorscheme zenbones")
+vim.cmd("set background=dark")
