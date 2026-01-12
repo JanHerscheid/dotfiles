@@ -25,7 +25,7 @@ vim.pack.add({
 	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.icons" },
-	{ src = "https://github.com/junegunn/goyo.vim" },
+	{ src = "https://github.com/folke/zen-mode.nvim" },
 	{ src = "https://github.com/preservim/vim-pencil" },
 })
 
@@ -34,6 +34,7 @@ require "mason".setup()
 require "oil".setup()
 require "mini.icons".setup()
 
+require("plugins.zen-mode")
 
 vim.lsp.enable({ "lua_ls", "ts_ls", "omnisharp", "svelte" })
 
@@ -42,12 +43,11 @@ vim.keymap.set('n', '<leader>ff', ":Pick files<CR>")
 vim.keymap.set('n', '<leader>fs', ":Pick grep live<CR>")
 vim.keymap.set('n', '<leader>fs', ":Pick grep live<CR>")
 
-vim.keymap.set('n', '-', ":Oil<CR>")
+vim.keymap.set('n', '-', ":Oil<CR>", {silent = true})
 
-vim.keymap.set('n', '<leader>p', ":Goyo | Pencil<CR>")
+vim.keymap.set('n', '<leader>p', ":ZenMode | Pencil<CR>", {silent = true})
 
 vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)
-
 
 -- colourscheme section
 vim.g.zenbones_compat = 1

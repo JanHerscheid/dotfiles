@@ -1,0 +1,33 @@
+{
+  "plugins": {
+    "goyo.vim": {
+      "rev": "fa0263d",
+      "src": "https://github.com/junegunn/goyo.vim"
+    },
+    "markdown-preview.nvim": {
+      "rev": "a923f5f",
+      "src": "https://github.com/iamcco/markdown-preview.nvim"
+    },
+    "mason.nvim": [],
+    "mini.icons": {
+      "rev": "ff2e4f1",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "mini.pick": [],
+    "nvim-lspconfig": [],
+    "oil.nvim": {
+      "rev": "7e1cd77",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "roslyn.nvim": [],
+    "vim-pencil": {
+      "rev": "6d70438",
+      "src": "https://github.com/preservim/vim-pencil"
+    },
+    "zen-mode.nvim": {
+      "rev": "8564ce6",
+      "src": "https://github.com/folke/zen-mode.nvim"
+    },
+    "zenbones.nvim": []
+  }
+}
