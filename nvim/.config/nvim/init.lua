@@ -27,21 +27,32 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/folke/zen-mode.nvim" },
 	{ src = "https://github.com/preservim/vim-pencil" },
+	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.extra"},
 })
 
 require "mini.pick".setup()
 require "mason".setup()
 require "oil".setup()
 require "mini.icons".setup()
+require "mini.extra".setup()
 
 require("plugins.zen-mode")
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "omnisharp", "svelte" })
+vim.lsp.enable({ "lua_ls", "ts_ls", "omnisharp", "svelte", "basedpyright" })
 
 -- keymap section
 vim.keymap.set('n', '<leader>ff', ":Pick files<CR>")
 vim.keymap.set('n', '<leader>fs', ":Pick grep live<CR>")
 vim.keymap.set('n', '<leader>fs', ":Pick grep live<CR>")
+
+vim.keymap.set("n", "<leader>e", function()
+  vim.diagnostic.open_float(nil, { scope = "line" })
+end, { desc = "Show diagnostic message" })
+
+vim.keymap.set("n", "gr", function()
+  MiniExtra.pickers.lsp({ scope = "references" })
+end, { desc = "LSP: references (mini.pick)" })
 
 vim.keymap.set('n', '-', ":Oil<CR>", {silent = true})
 
