@@ -36,10 +36,11 @@ require "mason".setup()
 require "oil".setup()
 require "mini.icons".setup()
 require "mini.extra".setup()
+require("lsp.vue").setup()
 
 require("plugins.zen-mode")
 
-vim.lsp.enable({ "lua_ls", "ts_ls", "omnisharp", "svelte", "basedpyright" })
+vim.lsp.enable({ "lua_ls", "ts_ls", "omnisharp", "svelte", "basedpyright", "vue_ls", "vtsls" })
 
 -- keymap section
 vim.keymap.set('n', '<leader>ff', ":Pick files<CR>")
@@ -63,4 +64,4 @@ vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)
 -- colourscheme section
 vim.g.zenbones_compat = 1
 vim.cmd("colorscheme zenbones")
-vim.cmd("set background=dark")
+vim.cmd("set background=light")
